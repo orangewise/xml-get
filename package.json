@@ -1,0 +1,35 @@
+{
+  "name": "xml-get",
+  "version": "0.0.1",
+  "description": "command line programm to get values from xml using lodash.get paths",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orangewise/xml-get.git"
+  },
+  "keywords": [
+    "get",
+    "values",
+    "from",
+    "xml",
+    "cli"
+  ],
+  "author": "Ronald Luitwieler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orangewise/xml-get/issues"
+  },
+  "homepage": "https://github.com/orangewise/xml-get#readme",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "lodash.get": "^4.4.2",
+    "pixl-xml": "^1.0.13"
+  },
+  "devDependencies": {
+    "standard": "^14.3.1",
+    "tape": "^4.11.0"
+  }
+}
