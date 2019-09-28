@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "command line programm to get values from xml using lodash.get paths",
   "main": "index.js",
+  "bin": {
+    "xml-get": "bin/xml-get"
+  },
   "scripts": {
     "test": "standard && tape test/*.js"
   },
