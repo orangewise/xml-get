@@ -6,7 +6,7 @@ test('should return 1977', function (t) {
   t.end()
 })
 
-test('should return 1977', function (t) {
+test('should return json', function (t) {
   t.deepEqual(
     xmlGet.value('planes_for_sale.ad[0]', 'test/fixtures/one.xml'),
     {
