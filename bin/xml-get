@@ -1,14 +1,28 @@
 #!/usr/bin/env node
 
-const xmlGet = require('../.')
+const d = require('debug')('bin')
 const args = process.argv.slice(2)
+const xmlGet = require('../.')
+const getStdin = require('get-stdin')
 
 // process arguments
 const path = args[0]
-const xml = args[1]
-if (!path || !xml) {
-  console.error('usage: npx xml-get <json-path> <path-to-xml-file>')
-  process.exit(1)
-}
+let xml
 
-console.log(xmlGet.value(path, xml))
+;(async () => {
+  // get xml, from file or stdin
+  if (process.stdin.isTTY) {
+    xml = args[1]
+  } else {
+    xml = await getStdin()
+  }  
+  d({ xml })
+
+  if (!path || !xml) {
+    xmlGet.usage()
+    process.exit(1)
+  }
+  
+  console.log(xmlGet.value(path, xml))
+
+})()

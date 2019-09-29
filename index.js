@@ -1,6 +1,6 @@
+const d = require('debug')('index')
 const XML = require('pixl-xml')
 const get = require('lodash.get')
-const d = require('debug')('index')
 
 exports.value = function (path, xml) {
   // output value at path
@@ -9,4 +9,13 @@ exports.value = function (path, xml) {
   const value = get(workflow, path)
   d({ value })
   return value
+}
+
+exports.usage = function () {
+  console.error(`
+usage: 
+$ npx xml-get <json-path> <path-to-xml-file>
+or 
+$ cat <path-to-xml-file> | npx xml-get <json-path>
+`)
 }

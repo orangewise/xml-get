@@ -16,6 +16,9 @@ $ npx xml-get planes_for_sale.ad[0].year ./test/fixtures/one.xml
 
 $ npx xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml 
 Missouri
+
+$ cat ./test/fixtures/one.xml | npx xml-get planes_for_sale.ad[0].color 
+Light blue and white
 ```
 
 ## xml file
