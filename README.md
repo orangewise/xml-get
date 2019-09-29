@@ -1,5 +1,8 @@
 # xml-get
 
+[![npm version][npm-badge]][npm-url]
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 Command line program to get values from xml using lodash.get paths.
 
 
@@ -53,3 +56,6 @@ Missouri
     </planes_for_sale>
 </root>
 ```
+
+[npm-badge]: https://badge.fury.io/js/xml-get.svg
+[npm-url]: https://badge.fury.io/js/xml-get
