@@ -1,6 +1,6 @@
 {
   "name": "xml-get",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "command line programm to get values from xml using lodash.get paths",
   "main": "index.js",
   "bin": {
