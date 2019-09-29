@@ -1,15 +1,18 @@
 # xml-get
 
-Command line program to get values from xml using a lodash.get paths.
+Command line program to get values from xml using lodash.get paths.
 
 
 # usage
 
 Given a the xml file below, you can get values like:
 
-```
+```bash
 $ npx xml-get planes_for_sale.ad[0].year ./test/fixtures/one.xml 
 1977
+
+$ npx xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml 
+Missouri
 ```
 
 ## xml file
