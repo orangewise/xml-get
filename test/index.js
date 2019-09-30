@@ -1,5 +1,5 @@
-const xmlGet = require('../.')
 const test = require('tape')
+const xmlGet = require('../.')
 
 test('should return 1977', function (t) {
   t.equal(xmlGet.value('planes_for_sale.ad[0].year', 'test/fixtures/one.xml'), '1977')
