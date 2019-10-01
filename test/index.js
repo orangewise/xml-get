@@ -31,13 +31,13 @@ test('should return json', (t) => {
 })
 
 test('cli - pipe input', async (t) => {
-  const r = await exec('cat ./test/fixtures/one.xml | xml-get planes_for_sale.ad[1].location.state')
+  const r = await exec('cat ./test/fixtures/one.xml | bin/xml-get planes_for_sale.ad[1].location.state')
   t.equal(r.stdout, 'Missouri\n', 'Correct output when using pipe')
   t.end()
 })
 
 test('cli - file input', async (t) => {
-  const r = await exec('xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml')
+  const r = await exec('bin/xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml')
   t.equal(r.stdout, 'Missouri\n', 'Correct output when file input')
   t.end()
 })
