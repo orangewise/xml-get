@@ -2,16 +2,16 @@
 
 const d = require('debug')('bin')
 const args = process.argv.slice(2)
-const xmlGet = require('../.')
 const getStdin = require('get-stdin')
+const xmlGet = require('../.')
 
 // process arguments
 const path = args[0]
 let xml
 
-;(async () => {
+async function run () {
   // get xml, from file or stdin
-  if (process.stdin.isTTY) {
+  if (args[1]) {
     xml = args[1]
   } else {
     xml = await getStdin()
@@ -24,5 +24,6 @@ let xml
   }
   
   console.log(xmlGet.value(path, xml))
+}
 
-})()
+run()

@@ -1,12 +1,14 @@
 const test = require('tape')
 const xmlGet = require('../.')
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
-test('should return 1977', function (t) {
+test('should return 1977', (t) => {
   t.equal(xmlGet.value('planes_for_sale.ad[0].year', 'test/fixtures/one.xml'), '1977')
   t.end()
 })
 
-test('should return json', function (t) {
+test('should return json', (t) => {
   t.deepEqual(
     xmlGet.value('planes_for_sale.ad[0]', 'test/fixtures/one.xml'),
     {
@@ -25,5 +27,17 @@ test('should return json', function (t) {
         state: 'South Dakota'
       }
     })
+  t.end()
+})
+
+test('cli - pipe input', async (t) => {
+  const r = await exec('cat ./test/fixtures/one.xml | xml-get planes_for_sale.ad[1].location.state')
+  t.equal(r.stdout, 'Missouri\n', 'Correct output when using pipe')
+  t.end()
+})
+
+test('cli - file input', async (t) => {
+  const r = await exec('xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml')
+  t.equal(r.stdout, 'Missouri\n', 'Correct output when file input')
   t.end()
 })
