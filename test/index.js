@@ -38,6 +38,12 @@ test('cli - pipe input', async (t) => {
 
 test('cli - file input', async (t) => {
   const r = await exec('bin/xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml')
-  t.equal(r.stdout, 'Missouri\n', 'Correct output when file input')
+  t.equal(r.stdout, 'Missouri\n', 'Correct output when using file input')
+  t.end()
+})
+
+test('cli - file input (output json)', async (t) => {
+  const r = await exec('bin/xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml json')
+  t.equal(r.stdout, '"Missouri"\n', 'Correct JSON output when using file input')
   t.end()
 })
