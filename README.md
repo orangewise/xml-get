@@ -14,6 +14,10 @@ Given a the xml file below, you can get values like:
 $ npx xml-get planes_for_sale.ad[0].year ./test/fixtures/one.xml 
 1977
 
+# output json, can be piped into jq
+$ npx xml-get planes_for_sale.ad[0].year ./test/fixtures/one.xml json | jq .
+"1977"
+
 $ npx xml-get planes_for_sale.ad[1].location.state ./test/fixtures/one.xml 
 Missouri
 

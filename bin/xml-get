@@ -7,23 +7,31 @@ const xmlGet = require('../.')
 
 // process arguments
 const path = args[0]
-let xml
+let xml, jsonOutput
 
-async function run () {
+async function run() {
+
   // get xml, from file or stdin
   if (args[1]) {
     xml = args[1]
+    jsonOutput = args[2]
   } else {
     xml = await getStdin()
-  }  
+  }
   d({ xml })
 
   if (!path || !xml) {
     xmlGet.usage()
     process.exit(1)
   }
-  
-  console.log(xmlGet.value(path, xml))
+
+  const json = xmlGet.value(path, xml)
+
+  if (jsonOutput) {
+    console.log(JSON.stringify(json))
+  } else {
+    console.log(json)
+  }
 }
 
 run()
